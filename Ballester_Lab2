@@ -1,0 +1,43 @@
+// Parent class: Cylinder
+class Cylinder {
+    // Attributes for radius and height
+    double radius;
+    double height;
+
+    // Constructor to initialize the cylinder's dimensions
+    public Cylinder(double radius, double height) {
+        this.radius = radius;
+        this.height = height;
+    }
+
+    // Method to compute the surface area of the cylinder
+    public double computeArea() {
+        return 2 * Math.PI * radius * (radius + height);
+    }
+}
+
+// Child class: CylinderVol that inherits from Cylinder
+class CylinderVol extends Cylinder {
+
+    // Constructor that calls the parent class constructor
+    public CylinderVol(double radius, double height) {
+        super(radius, height);
+    }
+
+    // Method to compute the volume of the cylinder
+    public double computeVolume() {
+        return Math.PI * Math.pow(radius, 2) * height;
+    }
+}
+
+// Main class to test the functionality
+public class Main {
+    public static void main(String[] args) {
+        // Create an object of the CylinderVol class
+        CylinderVol cylinder = new CylinderVol(5, 10);
+
+        // Compute and print the area and volume of the cylinder
+        System.out.println("Area of the Cylinder: " + cylinder.computeArea());
+        System.out.println("Volume of the Cylinder: " + cylinder.computeVolume());
+    }
+}
